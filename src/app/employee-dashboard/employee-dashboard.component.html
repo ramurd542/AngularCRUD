@@ -1,0 +1,64 @@
+<div>
+<nav class="navbar navbar-light bg-primary">
+  <div class="contatiner-fluid" style="display: contents;">
+    <h1 style="color:aliceblue">  Angular CRUD</h1>
+    <div class="d-flex mx-3">
+      <!-- <button class="btn btn-success" routerLink='addEmployee'>Add Employee</button> -->
+      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+        Add Employee
+      </button>
+
+    </div>
+  </div>
+</nav>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Employee ID</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Email ID</th>
+      <th scope="col">Mobile No</th>
+      <th scope="col"> Salary</th>
+      <th scope="col"> Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let emp of empList;index as i;">
+
+      <td>{{emp.id}}</td>
+      <td>{{emp.firstname}}</td>
+      <td>{{emp.lastname}}</td>
+      <td>{{emp.emailID}}</td>
+      <td>{{emp.salary}}</td>
+      <td>{{emp.mobilenumber}}</td>
+      <td>
+        <button class="btn btn-success" data-toggle="modal" data-target="#exampleModal" (click)="editEmp(emp)">Edit</button>
+        <button class="btn btn-danger mx-3" (click)="deleteEmp(emp)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <app-add-employee (refreshEmpList)="getEmployees()" [edit]="edit"></app-add-employee>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="getEmployees()">Close</button>
+        <button type="button" class="btn btn-primary" (click)="addNewItem()">Add</button>
+      </div>
+    </div>
+  </div>
+</div>
