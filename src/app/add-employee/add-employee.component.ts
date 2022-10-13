@@ -17,7 +17,7 @@ export class AddEmployeeComponent implements OnInit {
   @Output() refreshEmpList = new EventEmitter();
   @Output() closeModal = new EventEmitter();
   @Output() open: EventEmitter<any> = new EventEmitter();
-  @Input() edit :boolean = false;
+  @Input() edit!:boolean;
 
   employeeObj !: Employeemodal ;
   constructor(private formbuilder: FormBuilder, private sharedService : SharedserviceService) { }
@@ -34,18 +34,17 @@ export class AddEmployeeComponent implements OnInit {
     this.employeeObj.salary = this.formvalue.value.salary;
     this.employeeObj.mobilenumber = this.formvalue.value.mobilenumber;
     if(!this.edit){
-
-    this.sharedService.AddEmployeee(this.employeeObj).subscribe((data)=>{
+      this.sharedService.AddEmployeee(this.employeeObj).subscribe((data)=>{
       this.makeEmpObjEmpty();
       this.refreshEmpList.emit();
       this.closeModal.emit();
-
-    });
-  }
-  else{
+     });
+     }
+    else{
     this.updateEmp()
+    }
   }
-  }
+
   deleteEmployee(emp:Employeemodal){
     this.sharedService.deleteEmployee(emp.id).subscribe((data)=>{
       this.refreshEmpList.emit();
@@ -66,7 +65,6 @@ export class AddEmployeeComponent implements OnInit {
   }
 
   updateFormValue(emp:Employeemodal){
-    this.edit=true;
     this.formvalue = this.formbuilder.group({
       id:[emp.id],
       employeeID :[emp.id],
@@ -76,8 +74,6 @@ export class AddEmployeeComponent implements OnInit {
       salary:[emp.salary],
       mobilenumber:[emp.mobilenumber]
    });
-
-
   }
 
   makeEmpObjEmpty(){

@@ -2,24 +2,6 @@
   "posts": [
     {
       "employeeID": 0,
-      "salary": 2999,
-      "mobilenumber": 87685784949,
-      "id": 8,
-      "firstname": "rrrrr",
-      "lastname": "rrrrrr",
-      "emailID": "rdhjdhsjd@gmail.com"
-    },
-    {
-      "employeeID": 0,
-      "salary": 200000,
-      "mobilenumber": 87685780002,
-      "id": 12,
-      "firstname": "rkrk",
-      "lastname": "rkrk",
-      "emailID": "rdhjdhsjd@gmail.com"
-    },
-    {
-      "employeeID": 0,
       "salary": 10000,
       "mobilenumber": 2113114111,
       "firstname": "employee ",
@@ -62,6 +44,15 @@
       "lastname": "6",
       "emailID": "employee6@gmail.com",
       "id": 17
+    },
+    {
+      "employeeID": 0,
+      "salary": 34,
+      "mobilenumber": 44,
+      "firstname": "R",
+      "lastname": "R",
+      "emailID": "R",
+      "id": 18
     }
   ],
   "comments": [],

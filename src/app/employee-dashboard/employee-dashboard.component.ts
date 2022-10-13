@@ -11,7 +11,7 @@ import { SharedserviceService } from '../shared/sharedservice.service';
 })
 export class EmployeeDashboardComponent implements OnInit {
   empList!:any;
-  edit:boolean = false;
+  edit!:boolean;
   title = 'CRUD Operations with Angular';
 
   @ViewChild(AddEmployeeComponent, { static: true })
@@ -23,14 +23,14 @@ export class EmployeeDashboardComponent implements OnInit {
     this.getEmployees();
   }
   addNewItem() {
-  this.edit= false;
-    this.child.AddEmpolyee();
+    this.edit = false;
+     this.child.AddEmpolyee();
   }
   getEmployees(){
     this.sharedService.getEmployeees().subscribe((data)=>{
       this.empList = data;
-      console.log(this.empList);
-      console.log("Refresh grid with all employes");
+      this.edit=false;
+      this.child.makeEmpObjEmpty();
     });
   }
 
