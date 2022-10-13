@@ -12,6 +12,7 @@ import { SharedserviceService } from '../shared/sharedservice.service';
 export class EmployeeDashboardComponent implements OnInit {
   empList!:any;
   edit:boolean = false;
+  title = 'CRUD Operations with Angular';
 
   @ViewChild(AddEmployeeComponent, { static: true })
   child!: AddEmployeeComponent;

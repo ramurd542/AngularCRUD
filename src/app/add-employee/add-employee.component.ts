@@ -14,7 +14,7 @@ import { SharedserviceService } from '../shared/sharedservice.service';
 export class AddEmployeeComponent implements OnInit {
   formvalue!: FormGroup;
 
-  @Output() refreshEmpList= new EventEmitter();
+  @Output() refreshEmpList = new EventEmitter();
   @Output() open: EventEmitter<any> = new EventEmitter();
   @Input() edit :boolean = false;
 
