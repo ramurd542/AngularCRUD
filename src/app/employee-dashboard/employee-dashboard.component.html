@@ -3,11 +3,9 @@
   <div class="contatiner-fluid" style="display: contents;">
     <h1 style="color:aliceblue">  {{title}}</h1>
     <div class="d-flex mx-3">
-      <!-- <button class="btn btn-success" routerLink='addEmployee'>Add Employee</button> -->
       <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
         Add Employee
       </button>
-
     </div>
   </div>
 </nav>
@@ -53,10 +51,10 @@
         </button>
       </div>
       <div class="modal-body">
-        <app-add-employee (refreshEmpList)="getEmployees()" [edit]="edit"></app-add-employee>
+        <app-add-employee (refreshEmpList)="getEmployees()" (closeModal)="closeModalpopup()" [edit]="edit"></app-add-employee>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="getEmployees()">Close</button>
+        <button type="button" class="btn btn-secondary" #closeModal data-dismiss="modal" (click)="getEmployees()">Close</button>
         <button type="button" class="btn btn-primary" (click)="addNewItem()">Add</button>
       </div>
     </div>

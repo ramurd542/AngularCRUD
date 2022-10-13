@@ -15,6 +15,7 @@ export class AddEmployeeComponent implements OnInit {
   formvalue!: FormGroup;
 
   @Output() refreshEmpList = new EventEmitter();
+  @Output() closeModal = new EventEmitter();
   @Output() open: EventEmitter<any> = new EventEmitter();
   @Input() edit :boolean = false;
 
@@ -35,9 +36,10 @@ export class AddEmployeeComponent implements OnInit {
     if(!this.edit){
 
     this.sharedService.AddEmployeee(this.employeeObj).subscribe((data)=>{
-      this.refreshEmpList.emit;
       this.makeEmpObjEmpty();
-      alert('employee added');
+      this.closeModal.emit();
+      this.refreshEmpList.emit();
+
     });
   }
   else{
@@ -46,8 +48,7 @@ export class AddEmployeeComponent implements OnInit {
   }
   deleteEmployee(emp:Employeemodal){
     this.sharedService.deleteEmployee(emp.id).subscribe((data)=>{
-      this.refreshEmpList.emit;
-        alert('employee deleted');
+      this.refreshEmpList.emit();
     });
   }
 
@@ -57,10 +58,10 @@ export class AddEmployeeComponent implements OnInit {
 
   updateEmp(){
     this.sharedService.updateEmployee(this.employeeObj).subscribe((data)=>{
-      this.refreshEmpList.emit;
       this.edit =false;
       this.makeEmpObjEmpty();
-      alert('employee updated');
+      this.closeModal.emit();
+      this.refreshEmpList.emit();
     });
   }
 
