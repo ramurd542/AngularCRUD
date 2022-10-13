@@ -37,8 +37,8 @@ export class AddEmployeeComponent implements OnInit {
 
     this.sharedService.AddEmployeee(this.employeeObj).subscribe((data)=>{
       this.makeEmpObjEmpty();
-      this.closeModal.emit();
       this.refreshEmpList.emit();
+      this.closeModal.emit();
 
     });
   }
@@ -60,8 +60,8 @@ export class AddEmployeeComponent implements OnInit {
     this.sharedService.updateEmployee(this.employeeObj).subscribe((data)=>{
       this.edit =false;
       this.makeEmpObjEmpty();
-      this.closeModal.emit();
       this.refreshEmpList.emit();
+      this.closeModal.emit();
     });
   }
 
