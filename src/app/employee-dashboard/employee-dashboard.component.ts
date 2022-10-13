@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 import { AddEmployeeComponent } from '../add-employee/add-employee.component';
 import { Employeemodal } from '../shared/employeemodal';
@@ -16,6 +16,7 @@ export class EmployeeDashboardComponent implements OnInit {
 
   @ViewChild(AddEmployeeComponent, { static: true })
   child!: AddEmployeeComponent;
+  @ViewChild('closeModal') closeModal1!: ElementRef ;
   constructor(private sharedService : SharedserviceService) { }
 
   ngOnInit(): void {
@@ -41,6 +42,10 @@ export class EmployeeDashboardComponent implements OnInit {
   editEmp(emp:Employeemodal){
     this.edit = true;
    this.child.editEmp(emp);
+  }
+
+  closeModalpopup(){
+    this.closeModal1.nativeElement.click()
   }
 
 }
