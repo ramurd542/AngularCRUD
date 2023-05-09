@@ -1,0 +1,27 @@
+name: Example Workflow
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:    
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Set up .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '5.x'
+
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build and Test
+        run: |
+          # Add your build and test commands here
+          
+          # You can use the DOTNET_ROOT environment variable to reference the .NET Core SDK
+          echo "Using .NET Core SDK from: $DOTNET_ROOT"
